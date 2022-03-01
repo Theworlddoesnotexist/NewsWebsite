@@ -1,4 +1,5 @@
 let newsApi = 'http://api.mediastack.com/v1/news?countries=us,in&access_key=5909933bec649681a08c622fbd997962&sources=';
+let errorImage = 'error.png';
 
 let app = document.querySelector(".app")
 
@@ -6,7 +7,7 @@ let screen = {
  main:app.querySelector(".main-screen"),
   news:app.querySelector(".news-screen")
 };
-let categories = ["General", "Business","Technology","Entertainment","Health","Science","Sports"];
+let categories = ["CNN", "Business","BBC","Entertainment","Health","Science","Sports"];
 for(let i=0;i<categories.length;i++){
  let div = document.createElement("div");
  div.innerText = categories[i];
@@ -38,7 +39,7 @@ async function fetchCategoryNews (category){
        });
        div.innerHTML = `
          <div class="thumbnail">
-           <img src="${news[i].image}">
+           <img src="${news[i].image || errorImage}">
          </div>
          <div class="details">
             <h2>${news[i].title}</h2>
