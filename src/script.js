@@ -1,5 +1,13 @@
-let newsApi = 'http://api.mediastack.com/v1/news?countries=us,in&access_key=5909933bec649681a08c622fbd997962&sources=';
+//let newsApi = 'http://api.mediastack.com/v1/news?countries=us,in&access_key=5909933bec649681a08c622fbd997962&sources=';
 let errorImage = 'error.png';
+let newKey = `4896b21c214044cc82624a3730e0465d`
+
+document.getElementById("app").innerHTML = `
+<div class="screen main-screen">
+  <div class="logo">NewsApp</div>
+  <div class="categories"></div>
+  <div class="news-list"></div>
+`;
 
 let app = document.querySelector(".app")
 
@@ -26,10 +34,11 @@ for(let i=0;i<categories.length;i++){
 async function fetchCategoryNews (category){
   screen.main.querySelector(".news-list").innerHTML= "";
   try {
-     let res = await fetch(newsApi + category.toLowerCase());
+    let catego = category.toLowerCase();
+     let res = await fetch(`https://newsapi.org/v2/everything?q=${catego}&apiKey=4896b21c214044cc82624a3730e0465d`);
      let data = await res.json();
-     let news = data.data;
-     console.log(news)
+     let news = data.articles;
+     console.log(data)
     for (let i=0;i<news.length;i++){
        let div = document.createElement("div");
        div.classList.add("item");
@@ -39,7 +48,7 @@ async function fetchCategoryNews (category){
        });
        div.innerHTML = `
          <div class="thumbnail">
-           <img src="${news[i].image || errorImage}">
+           <img src="${news[i].urlToImage || errorImage}">
          </div>
          <div class="details">
             <h2>${news[i].title}</h2>
