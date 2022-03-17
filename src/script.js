@@ -35,7 +35,13 @@ async function fetchCategoryNews (category){
   screen.main.querySelector(".news-list").innerHTML= "";
   try {
     let catego = category.toLowerCase();
-     let res = await fetch(`https://newsapi.org/v2/everything?q=${catego}&apiKey=4896b21c214044cc82624a3730e0465d`);
+     let res = await fetch(`https://free-news.p.rapidapi.com/v1/search?q=${catego}&lang=en`, {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "free-news.p.rapidapi.com",
+		"x-rapidapi-key": "a29a65b0b3mshc3a8407fe7723fcp18b02fjsn34eba5e5d19b"
+		}});
+    console.log(res);
      let data = await res.json();
      let news = data.articles;
      console.log(data)
@@ -43,16 +49,16 @@ async function fetchCategoryNews (category){
        let div = document.createElement("div");
        div.classList.add("item");
        div.addEventListener("click", function(){
-	 window.open(news[i].url, '_blank');
+	 window.open(news[i].link, '_blank');
 	 news[i].url;
        });
        div.innerHTML = `
          <div class="thumbnail">
-           <img src="${news[i].urlToImage || errorImage}">
+           <img src="${news[i].media || errorImage}">
          </div>
          <div class="details">
             <h2>${news[i].title}</h2>
-            <p>${news[i].description}</p>
+            <p>${news[i].summary}</p>
          </div>
 	`;
       screen.main.querySelector(".news-list").appendChild(div);
