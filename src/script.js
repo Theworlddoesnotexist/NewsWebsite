@@ -41,10 +41,8 @@ async function fetchCategoryNews (category){
 		"x-rapidapi-host": "free-news.p.rapidapi.com",
 		"x-rapidapi-key": "a29a65b0b3mshc3a8407fe7723fcp18b02fjsn34eba5e5d19b"
 		}});
-    console.log(res);
      let data = await res.json();
      let news = data.articles;
-     console.log(data)
     for (let i=0;i<news.length;i++){
        let div = document.createElement("div");
        div.classList.add("item");
