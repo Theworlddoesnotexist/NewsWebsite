@@ -4,7 +4,7 @@ let newKey = `4896b21c214044cc82624a3730e0465d`
 
 document.getElementById("app").innerHTML = `
 <div class="screen main-screen">
-  <div class="logo">NewsApp</div>
+  <div class="logo">News</div>
   <div class="categories"></div>
   <div class="news-list"></div>
 `;

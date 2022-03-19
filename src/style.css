@@ -1,10 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Condensed");
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
 body {
-  font -family: "Roboto", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   background: #ddd;
 }
 .app {
@@ -37,6 +38,7 @@ body {
   border-bottom: 1px solid #ddd;
   font-weight : 600;
   padding: 20px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 }
 .main-screen .categories {
   padding: 15px 10px 10px;
@@ -46,6 +48,7 @@ body {
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
   gap: 10px;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
  }
 .main-screen .categories > div {
   padding: 10px 20px;
@@ -59,7 +62,7 @@ body {
   display: none;
 }
 .main-screen .categories > div.active {
-  background: #111;
+  background: #000;
   color: #fff;
 }
 .main-screen .news-list {
@@ -86,13 +89,13 @@ body {
   padding: 1rem;
 }
 .main-screen .news-list > .item .details h2 {
-  font-size: 16px;
+  font-size: 1rem;
   border-bottom: 10px;
 }
 .main-screen .news-list > .item p {
-  font-size: 15px;
+  font-size: 0.8rem;
   color: #555;
-  margin-top: 5px;
+  margin-top: 0.5rem;
 }
 
 @media(min-width:768px){
@@ -103,4 +106,8 @@ body {
     grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));
     margin: 0 auto;
   }
+}
+
+.categories > div:hover{
+  opacity:0.6;
 }
