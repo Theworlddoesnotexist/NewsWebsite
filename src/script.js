@@ -15,7 +15,7 @@ let screen = {
  main:app.querySelector(".main-screen"),
   news:app.querySelector(".news-screen")
 };
-let categories = ["CNN","BBC","Euronews","CGTN","IRIB","RT","France 24"];
+let categories = ["CNN","BBC","Euronews","CGTN","IRIB","RT","France24"];
 for(let i=0;i<categories.length;i++){
  let div = document.createElement("div");
  div.innerText = categories[i];
